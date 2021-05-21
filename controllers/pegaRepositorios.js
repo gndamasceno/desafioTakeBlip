@@ -43,6 +43,7 @@ let resultado
     resultado = await teste()
 })()
 module.exports = app => {
+    app.get('/', (req, res) => { res.send('teste') })
     app.get('/atendimentos', (req, res) => {
 
 
