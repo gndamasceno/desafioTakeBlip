@@ -14,7 +14,7 @@ const getRepositorios = async () => {
     const response = await fetch(url);
     const repositoriosEncontrados = await response.json();
 
-    const avatar = repositoriosEncontrados[0].owner.avatar_url
+    const avatar = repositoriosEncontrados[0].owner.avatar_url;
 
     const listaRepositoriosEmCSharp = pegaRepositoriosCriadosEmCSharp(repositoriosEncontrados);
     // não retorna o repositório Blip.Api.Template.K8s porque a language dele não está definida na propriedade language
