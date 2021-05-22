@@ -10,39 +10,45 @@ module.exports = app => {
 }
 
 const getRepositorios = async () => {
-    const url = "https://api.github.com/search/repositories?q=user:takenet created:<2014-03-01"
+    const url = "https://api.github.com/users/takenet/repos?per_page=100"
     const response = await fetch(url);
-    if (response.status >= 400) {
-        throw new Error("Bad response from server");
-    }
-    const result = await response.json();
-    //order repos by date
-    const repositoriosEncontrados = result.items;
-    let listaRepositorios = [],
-        index = 0
-    repositoriosEncontrados.forEach((repositorio) => {
-        listaRepositorios[index++] = {
-            nome: repositorio.name,
-            descricao: repositorio.description,
-            date: new Date(repositorio.created_at)
-        }
-    });
-    listaRepositorios = ordenaPelaData(listaRepositorios)
-    let avatar = repositoriosEncontrados[0].owner.avatar_url
+    const repositoriosEncontrados = await response.json();
+
+    const avatar = repositoriosEncontrados[0].owner.avatar_url
+
+    const listaRepositoriosEmCSharp = pegaRepositoriosCriadosEmCSharp(repositoriosEncontrados);
+    // não retorna o repositório Blip.Api.Template.K8s porque a language dele não está definida na propriedade language
+    const listaRepositoriosEmCSharpOrdenadosPelaData = sortRepositoriosPelaDataDeCriacao(
+        listaRepositoriosEmCSharp)
+    const listaRepositorios = listaRepositoriosEmCSharpOrdenadosPelaData.slice(0, 5)
     const info = {
         listaRepositorios,
         avatar
     }
 
-    return info
+    return info;
 }
-const ordenaPelaData = (lista) => {
-    lista.sort(function (a, b) {
+
+function sortRepositoriosPelaDataDeCriacao(repositorios) {
+    repositorios.sort(function (a, b) {
         return a.date - b.date;
-    });
-    return lista;
+    })
+    return repositorios;
 }
 
-
+function pegaRepositoriosCriadosEmCSharp(repositorios) {
+    let index = 0,
+        listaRepositorios = [];
+    repositorios.forEach(repositorio => {
+        if (repositorio.language == "C#") {
+            listaRepositorios[index++] = {
+                nome: repositorio.name,
+                descricao: repositorio.description,
+                date: new Date(repositorio.created_at)
+            }
+        }
+    });
+    return listaRepositorios;
+}
 
 
