@@ -79,6 +79,9 @@ $ npm start
 # Clone este repositório
 $ git clone https://github.com/gndamasceno/desafioTakeBlip.git
 
+# Entre no diretório "desafioTakeBlip"
+$ cd desafioTakeBlip
+
 # Siga os passos de "deploy-your-application-to-heroku"
 $ https://devcenter.heroku.com/articles/deploying-nodejs#deploy-your-application-to-heroku
 
@@ -89,6 +92,9 @@ $ https://devcenter.heroku.com/articles/deploying-nodejs#deploy-your-application
 
 # Clone este repositório
 $ git clone https://github.com/gndamasceno/desafioTakeBlip.git
+
+# Entre no diretório "desafioTakeBlip"
+$ cd desafioTakeBlip
 
 # Entre no diretório FLOW
 $ cd FLOW
