@@ -6,8 +6,10 @@
 
 function run(respostaString) {
     const respostaRepositoriosAPI = JSON.parse(respostaString)
-
+    //Tratando resposta da API
+    //Avatar
     const avatar = respostaRepositoriosAPI.avatar
+    //Repositórios
     let repositoriosTakeblip = [],
         index = 0;
     respostaRepositoriosAPI.listaRepositorios.forEach(repositorio => {
@@ -16,6 +18,7 @@ function run(respostaString) {
             descricao: repositorio.descricao
         }
     });
+    //Criação do Carousel
     content = {
         itemType: "application/vnd.lime.document-select+json",
         items: [
