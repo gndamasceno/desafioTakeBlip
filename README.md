@@ -47,7 +47,7 @@ Posteriormente, utilizei a documentação disponibilizada pela take e consultas 
 </p>
 <p>
 Deste modo, refatorei o código e enviei para o repositório uma versão da minha API que retornava os 5 repositórios mais antigos da Take mas percebi que essa não era a ação esperada pela API.
-</p
+</p>
 <p>
 Após fazer as correções necessárias, para a API devolver os 5 repositórios de C# mais antigos da take, realizei modificações no código para deixá-lo mais claro, criei funções e variáveis mais semânticas e comentei o objetivo das funções, e enviei a versão final do desafio. 
 </p>
@@ -82,7 +82,8 @@ $ git clone https://github.com/gndamasceno/desafioTakeBlip.git
 # Siga os passos de "deploy-your-application-to-heroku"
 $ https://devcenter.heroku.com/articles/deploying-nodejs#deploy-your-application-to-heroku
 
-#ps: O comando -git push heroku main pode não funcionar, execute -git push heroku master caso o primeiro falhe.
+#ps: O comando -git push heroku main pode não funcionar,
+#    execute -git push heroku master caso o primeiro falhe.
 
 #### Executar contato inteligente
 
